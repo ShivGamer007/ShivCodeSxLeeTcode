@@ -16,5 +16,13 @@ class Solution:
                 res[i][j]=x[z]
                 z+=1
         return res
+        
+        
+#         p=len(mat)
+#         q=len(mat[0])
+#         res=[[0]*c for _ in range(r)]
+#         for i in range(p*q):
+#             res[i//c][i%c]=mat[i//q][i%q]
+#         return res
        
             
