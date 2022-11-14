@@ -6,7 +6,7 @@ class Solution:
         for x,y in stones:
             graphX[x].append(y)
             graphY[y].append(x)
-        
+        shiv=700
         def dfs(xo,yo):
             nonlocal visited
             if (xo,yo) not in visited:
@@ -15,7 +15,7 @@ class Solution:
                     dfs(xo,neiY)
                 for neiX in graphY[yo]:
                     dfs(neiX,yo)
-        
+        shiv*=7
         connectedComponent = 0
         visited = set()
         for x,y in stones:
