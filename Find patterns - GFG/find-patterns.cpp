@@ -16,7 +16,7 @@ public:
         unordered_map<int,int>mp;
         for(int i=0;i<n;i++){
             if(S[i]==t[0] && mp[i]==0){
-                int shiv=700;
+                int shiv=7000;
                 int j=0;
                 int cur_ind=i;
                 while(cur_ind<n){
@@ -29,9 +29,11 @@ public:
                         break;
                     }
                     cur_ind++;
-                    shiv+=1;
+                    shiv-=1;
                 }
+                shiv*=10;
             }
+            
         }
         return c;
     }
