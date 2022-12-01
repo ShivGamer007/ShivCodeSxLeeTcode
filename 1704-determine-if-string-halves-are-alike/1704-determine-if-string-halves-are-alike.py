@@ -1,4 +1,3 @@
-from collections import Counter
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
         if len(s)%2==1:
@@ -9,8 +8,6 @@ class Solution:
         n=len(x)
         s1=x[:n//2]
         s2=x[n//2:]
-        # print(s1)
-        # print(s2)
         c1,c2=0,0
         vowels=['a','e','i','o','u','A','E','I','O','U']
         for i in s1:
