@@ -12,17 +12,15 @@
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
-        int currentSum = 0;
-        return sumNodes(root, currentSum);
+        int cur=0;
+        return sumNode(root,cur);
     }
-
-    int sumNodes(TreeNode* root, int currentSum){
-        if(root == NULL) return 0;
-        currentSum = currentSum * 10 + root->val;
-        if(root->left==NULL && root->right==NULL) return currentSum;
-
-        int leftSum = sumNodes(root->left, currentSum);
-        int rightSum = sumNodes(root->right, currentSum);
-        return leftSum + rightSum; 
+    int sumNode(TreeNode* root,int cur){
+        if (root==NULL) return 0;
+        cur=cur*10+root->val;
+        if (root->left==NULL && root->right==NULL) return cur;
+        int left=sumNode(root->left,cur);
+        int right=sumNode(root->right,cur);
+        return left+right;
     }
 };
