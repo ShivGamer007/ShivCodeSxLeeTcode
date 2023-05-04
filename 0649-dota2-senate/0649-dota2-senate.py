@@ -12,8 +12,8 @@ class Solution:
             r=rq.popleft()
             d=dq.popleft()
             if r<d:
-                rq.append(d+len(snt))
+                rq.append(r+len(snt))
             else:
-                dq.append(r+len(snt))
+                dq.append(d+len(snt))
         
         return "Radiant" if rq else "Dire"
