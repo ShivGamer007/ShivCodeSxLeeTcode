@@ -1,22 +1,19 @@
 class Solution:
     def maxUncrossedLines(self, nums1: List[int], nums2: List[int]) -> int:
         
-        #memoization - DP
+        #tabulation - DP
         
-        m,n=len(nums1),len(nums2)
-        dp={}
-        def bfs(i, j):
-            if i == m or j == n:
-                return 0
-            
-            if (i, j) in dp: 
-                return dp[(i, j)]
-            
-            if nums1[i] == nums2[j]:
-                dp[(i, j)] = 1 + bfs(i + 1, j + 1)
-            else:
-                dp[(i, j)] = max(bfs(i + 1, j), bfs(i, j + 1))
+        m, n = len(nums1), len(nums2)
+        
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        
+        for i in range(m):
+            for j in range(n):
                 
-            return dp[(i, j)]
-        
-        return bfs(0, 0)
+                if nums1[i] == nums2[j]:
+                    dp[i + 1][j + 1] = 1 + dp[i][j]
+                else:
+                    dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
+        # print(dp)
+        return dp[m][n]
+                    
