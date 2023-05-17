@@ -7,13 +7,6 @@ class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
 
         def reverselinkedlist(head):
-            # temp=head
-            # if head==None or head.next==None: return 
-            # while(temp!= None and temp.next!=None and temp.next.next!=None):
-            #     temp.next.next=temp
-            #     temp=temp.next
-            # head.next=None
-            # head=temp
             cur = head
             prev = None
             while(cur is not None):
@@ -37,9 +30,7 @@ class Solution:
         head2 = reverselinkedlist(h2)
         t1, t2 = head, head2
         ans=0
-        # printll(head)
-        # print("ss")
-        # printll(head2)
+        
         while(t1 and t2):
             sm = t1.val + t2.val
             ans=max(ans,sm)
