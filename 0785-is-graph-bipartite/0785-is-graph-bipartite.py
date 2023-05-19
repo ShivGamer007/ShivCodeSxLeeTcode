@@ -2,7 +2,7 @@ class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         n = len(graph)
         color = [0] * n
-        def validcolor(node,col):
+        def validcolor(node,col):#dfs
             if color[node] != 0:
                 return color[node] == col
             
