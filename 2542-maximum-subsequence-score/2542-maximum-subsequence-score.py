@@ -15,5 +15,4 @@ class Solution:
                 n1sum -= n1pop
             if len(minheap) == k:
                 ans = max(ans, n1sum * n2)
-        
         return ans
