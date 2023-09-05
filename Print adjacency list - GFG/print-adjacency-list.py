@@ -7,7 +7,7 @@ class Solution:
     def printGraph(self, V : int, edges : List[List[int]]) -> List[List[int]]:
         # code here
         adj = [[] for _ in range(V)]
-        for i in range(E):
+        for i in range(len(edges)):
             v1, v2 = edges[i]
             adj[v1].append(v2)
             adj[v2].append(v1)
