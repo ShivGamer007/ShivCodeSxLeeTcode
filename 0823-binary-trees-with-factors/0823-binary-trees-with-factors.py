@@ -3,15 +3,10 @@ class Solution:
         mod = 10**9+7
         arr.sort()
         res = 0
-        mp = {}
         mpans = {}
-        # mpans[arr[0]] = 1
         
         for i in range(len(arr)):
-            mp[arr[i]] = 1
             mpans[arr[i]] = 1
-        
-        ans = len(arr)
         
         for i in range(1, len(arr)):
             x = arr[i]
@@ -20,7 +15,7 @@ class Solution:
             for j in range(2, t+1):
                 if x % j == 0:
                     p = x//j
-                    if (j in mp) and (p in mp):
+                    if (j in mpans) and (p in mpans):
                         if p == j: 
                             ans += mpans[j] * mpans[j]
                         else:
