@@ -1,33 +1,18 @@
 class Solution {
 public:
-    int jobScheduling(vector<int>& stime, vector<int>& etime, vector<int>& profit) {//stime=starttime, etime=endtime
-        int n=stime.size();
-        vector<vector<int>>v;
-        for(int i=0;i<n;i++){
-            v.push_back({etime[i],stime[i],profit[i]});
+    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {//stime=starttime, etime=endtime
+         const int n = startTime.size();
+        vector<vector<int>> jobs(n);
+        for (int i = 0; i < n; i++) jobs[i] = {endTime[i], startTime[i], profit[i]};
+        sort(jobs.begin(), jobs.end());
+
+        // dynamic programming 
+        map<int, int> dp = {{0, 0}};
+        for (auto& job : jobs) {
+            
+            int profit = prev(dp.upper_bound(job[1]))->second + job[2];
+            if (profit > dp.rbegin()->second) dp[job[0]] = profit;
         }
-        sort(v.begin(),v.end());
-        int ans=0;
-        vector<int>dp(n);
-        
-        for(int i=0;i<n;i++){
-            dp[i]=v[i][2];
-            if(i==0){
-                ans=max(ans,dp[i]);
-                continue;
-            }
-            dp[i]=max(dp[i],dp[i-1]);
-            int start=v[i][1];
-            for(int j=i-1;j>=0;j--){
-                if(start>=v[j][0]){
-                    dp[i]=max(dp[i],dp[j]+v[i][2]);
-                    break;
-                }
-            }
-            ans=max(ans,dp[i]);
-        }
-        return ans;
-        
-        
+        return dp.rbegin()->second;      
     }
 };
