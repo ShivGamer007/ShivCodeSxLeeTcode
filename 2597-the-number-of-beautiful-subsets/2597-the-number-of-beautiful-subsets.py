@@ -6,8 +6,9 @@ class Solution:
             if idx == n:
                 return 1
             total = 0
+            #skip
             total += recursion(idx+1, cnt)
-            
+            #take
             if cnt[nums[idx]-k] == 0 and cnt[nums[idx]+k] == 0:
                 cnt[nums[idx]] += 1
                 total += recursion(idx+1, cnt)
