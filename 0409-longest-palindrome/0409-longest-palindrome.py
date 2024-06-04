@@ -4,9 +4,9 @@ class Solution:
         ans = 0
         mp = Counter(s)
         # print(mp)
-        x = list(mp.values())
+        # x = list(mp.values())
         odd = []
-        for i in x:
+        for i in mp.values():
             if i%2:
                 ans += (i-1)
                 odd.append(i)
