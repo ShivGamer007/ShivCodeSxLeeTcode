@@ -8,6 +8,7 @@ class Solution:
         for i in nums:
             presum += i
             r = presum % k
+            r += k if r < 0 else 0
             ans += prefix_map[r]
             prefix_map[r] += 1
         
