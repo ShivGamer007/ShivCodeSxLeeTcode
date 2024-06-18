@@ -5,9 +5,11 @@ class Solution:
         dif_pro.sort()
         worker.sort()
         ans = 0
+        
         j = 0
         mx = 0
         for i in range(len(worker)):
+            
             while j < len(dif_pro) and dif_pro[j][0] <= worker[i]:
                 mx = max(mx, dif_pro[j][1])
                 j += 1
