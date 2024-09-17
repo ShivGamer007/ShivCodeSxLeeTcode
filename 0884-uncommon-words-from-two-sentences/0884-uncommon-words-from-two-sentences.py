@@ -1,13 +1,14 @@
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
-        x = s1 +" "+ s2
-        x = list(x.split())
-        ans = []
+        x = list(s1.split()) + list(s2.split())
+        map = {}
         for i in x:
-            if x.count(i) == 1:
+            map[i] = map.get(i, 0) + 1
+        ans = []
+        for i in map:
+            if map[i] == 1:
                 ans.append(i)
         return ans
-        
         
         
         # s1 = list(s1.split())
