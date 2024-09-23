@@ -1,10 +1,11 @@
 class Solution:
     def minExtraChar(self, s: str, dictionary: List[str]) -> int:
-        dp = [0]*51
-        n = len(s)
-        for i in range(n-1, -1, -1):
-            dp[i] = 1+dp[i+1]
-            for word in dictionary:
-                if i+len(word) <= n and s[i:i+len(word)] == word:
-                    dp[i] = min(dp[i], dp[i+len(word)])
-        return dp[0]
+        dc_set = set(dictionary)
+        dp = [0]*(len(s)+1)
+        dp[0] = 0
+        for i in range(1, len(s)+1):
+            dp[i] = dp[i-1] + 1
+            for j in range(i):
+                if s[j:i] in dc_set:
+                    dp[i] = min(dp[i], dp[j])
+        return dp[len(s)]
