@@ -9,6 +9,3 @@ class Solution:
             if all([cnt[i]==0 for i in cnt]):
                 return True
         return False
-        
-        
-    
