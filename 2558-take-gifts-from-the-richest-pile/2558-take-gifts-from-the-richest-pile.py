@@ -4,7 +4,7 @@ class Solution:
     
         gifts = [-i for i in gifts]
         heapify(gifts)
-        x = 2**32
+        x = float("inf")
         i = 0
         while i < k and x > 1:
             x = -heappop(gifts)
